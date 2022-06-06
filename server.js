@@ -16,7 +16,7 @@ app.use(routes);
 
 connection
   .sync({
-    force: true,
+    force: false,
   })
   .then(() => {
     app.listen(PORT, () => console.log(`App listening on port ${PORT}!`));

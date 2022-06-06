@@ -4,10 +4,14 @@ const { Category, Product } = require("../../models");
 // The `/api/categories` endpoint
 
 router.get("/", (req, res) => {
+  console.log("======I am here!===========");
   Category.findAll({
     include: [Product],
   })
-    .then((dbCategoryData) => res.json(dbCategoryData))
+    .then((dbCategoryData) => {
+      console.log("LOOK HERE=====", dbCategoryData);
+      res.json(dbCategoryData);
+    })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
